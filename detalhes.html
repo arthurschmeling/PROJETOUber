@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Como funciona o Uber - Detalhes Completos</title>
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <h1>Como funciona o Uber? (Detalhes)</h1>
+            <p class="lead">Explicação completa sobre o funcionamento técnico e operacional do Uber.</p>
+            <nav class="main-nav" aria-label="Navegação principal">
+                <a href="index.html" class="nav-btn">Início</a>
+                <a href="detalhes.html" class="nav-btn">Entenda como funciona</a>
+                <a href="parte-logica.html" class="nav-btn">Parte lógica</a>
+            </nav>
+
+            <div class="hero-features">
+                <div class="feature">
+                    <div class="icon">⚙️</div>
+                    <div>
+                        <h4>Processo completo</h4>
+                        <p class="muted">7 etapas detalhadas</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="icon">🔄</div>
+                    <div>
+                        <h4>Funcionamento em tempo real</h4>
+                        <p class="muted">GPS e atualizações contínuas</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="icon">📊</div>
+                    <div>
+                        <h4>Dados e análise</h4>
+                        <p class="muted">Algoritmos inteligentes</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-row">
+                <a class="btn" href="parte-logica.html">Ver a tecnologia</a>
+                <a class="btn secondary" href="index.html">Voltar ao início</a>
+            </div>
+
+        </div>
+    </header>
+<p></p>
+    <main class="container">
+        <div class="layout">
+            <div class="content">
+                <section class="overview">
+                    <h2>Visão geral</h2>
+                    <p>Resumo técnico: O passageiro envia dados → Uber recebe, valida e analisa. O sistema busca motoristas próximos → escolhe o mais eficiente. Viagem começa → GPS rastreia e atualiza preço. Viagem termina → sistema calcula o valor final. Ambos avaliam → dados são guardados.</p>
+                </section>
+
+                <section class="steps timeline">
+                    <!-- Etapa 1: Solicitação -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">01</div>
+                        <div class="timeline-content">
+                            <div class="timeline-card">
+                                <div class="card-icon">🔍</div>
+                                <h3>Solicitação de viagem</h3>
+                                <p class="subtitle">O passageiro inicia tudo</p>
+                                <div class="card-details">
+                                    <p>O passageiro abre o app do Uber e informa seus dados: localização via GPS, destino, tipo de veículo e forma de pagamento. O sistema valida todas as informações em tempo real.</p>
+                                    <ul>
+                                        <li>Identificação via GPS</li>
+                                        <li>Seleção de destino</li>
+                                        <li>Escolha do tipo de serviço</li>
+                                        <li>Método de pagamento</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 2: Busca de motorista -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">02</div>
+                        <div class="timeline-content">
+                            <div class="timeline-card">
+                                <div class="card-icon">📡</div>
+                                <h3>Busca e seleção do motorista</h3>
+                                <p class="subtitle">O algoritmo age</p>
+                                <div class="card-details">
+                                    <p>O sistema utiliza machine learning para analisar diversos fatores e encontrar o motorista ideal em questão de segundos.</p>
+                                    <ul>
+                                        <li>Proximidade do motorista</li>
+                                        <li>Tempo estimado de chegada (ETA)</li>
+                                        <li>Disponibilidade em tempo real</li>
+                                        <li>Histórico e avaliação</li>
+                                        <li>Otimização de rotas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 3: Oferta ao motorista -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">03</div>
+                        <div class="timeline-content">
+                            <div class="timeline-card">
+                                <div class="card-icon">🚘</div>
+                                <h3>Motorista recebe a oferta</h3>
+                                <p class="subtitle">Notificação em tempo real</p>
+                                <div class="card-details">
+                                    <p>Uma notificação é enviada ao motorista selecionado com todos os detalhes da corrida solicitada.</p>
+                                    <ul>
+                                        <li>Localização do passageiro no mapa</li>
+                                        <li>Destino e distância estimada</li>
+                                        <li>Preço estimado a ganhar</li>
+                                        <li>Rating do passageiro</li>
+                                        <li>Tempo para aceitar: 10-15 segundos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 4: Motorista a caminho -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">04</div>
+                        <div class="timeline-content">
+                            <div class="timeline-card">
+                                <div class="card-icon">🗺️</div>
+                                <h3>Motorista a caminho</h3>
+                                <p class="subtitle">Rastreamento em tempo real</p>
+                                <div class="card-details">
+                                    <p>Assim que o motorista aceita, ambos recebem atualizações contínuas da localização em tempo real.</p>
+                                    <ul>
+                                        <li>Mapa em tempo real do motorista</li>
+                                        <li>Tempo de chegada atualizado</li>
+                                        <li>Informações do carro e placa</li>
+                                        <li>Contato direto (chamada/mensagem)</li>
+                                        <li>Compartilhamento de segurança</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 5: Início da corrida -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">05</div>
+                        <div class="timeline-content">
+                            <div class="timeline-card">
+                                <div class="card-icon">▶️</div>
+                                <h3>Início e execução da corrida</h3>
+                                <p class="subtitle">Jornada em movimento</p>
+                                <div class="card-details">
+                                    <p>A corrida inicia quando o passageiro entra no veículo e todos os sistemas começam a rastrear a jornada em tempo real.</p>
+                                    <ul>
+                                        <li>GPS ativo e contínuo</li>
+                                        <li>Cálculo dinâmico do preço</li>
+                                        <li>Rota otimizada</li>
+                                        <li>Consideração de tráfego</li>
+                                        <li>Documentação completa</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 6: Cálculo de preço -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">06</div>
+                        <div class="timeline-content">
+                            <div class="timeline-card pricing-card">
+                                <div class="card-icon">💵</div>
+                                <h3>Cálculo dinâmico do preço</h3>
+                                <p class="subtitle">Fórmula em tempo real</p>
+                                <div class="card-details">
+                                    <p>O preço é calculado através de uma fórmula matemática que considera vários fatores:</p>
+                                    <div class="formula-box">
+                                        <code>Preço = (Tarifa Base) + (Distância × Valor/km) + (Tempo × Valor/min) + (Multiplicador Dinâmico)</code>
+                                    </div>
+                                    <ul style="margin-top:16px;">
+                                        <li><strong>Tarifa base:</strong> Valor inicial</li>
+                                        <li><strong>Distância:</strong> Por quilômetro</li>
+                                        <li><strong>Tempo:</strong> Por minuto</li>
+                                        <li><strong>Demanda:</strong> Multiplicador dinâmico</li>
+                                        <li><strong>Pedágios:</strong> Adicionados se houver</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 7: Fim e pagamento -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">07</div>
+                        <div class="timeline-content">
+                            <div class="timeline-card">
+                                <div class="card-icon">✅</div>
+                                <h3>Fim da corrida e pagamento</h3>
+                                <p class="subtitle">Encerramento e confirmação</p>
+                                <div class="card-details">
+                                    <p>Quando o destino é atingido, o sistema finaliza a corrida e processa o pagamento automaticamente.</p>
+                                    <ul>
+                                        <li>Corrida finalizada automaticamente</li>
+                                        <li>Valor total calculado com precisão</li>
+                                        <li>Processamento de pagamento</li>
+                                        <li>Geração de recibo detalhado</li>
+                                        <li>Interface de avaliação</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 8: Segurança e análise -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">08</div>
+                        <div class="timeline-content">
+                            <div class="timeline-card">
+                                <div class="card-icon">🔐</div>
+                                <h3>Segurança e análise</h3>
+                                <p class="subtitle">Proteção e aprendizado</p>
+                                <div class="card-details">
+                                    <p>Após a corrida, vários processos de segurança e machine learning são executados para melhorar o serviço.</p>
+                                    <ul>
+                                        <li>Verificação de rota</li>
+                                        <li>Detecção de anomalias com IA</li>
+                                        <li>Análise de feedback</li>
+                                        <li>Atualização de rating</li>
+                                        <li>Machine learning contínuo</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Seção de FAQ Interativa -->
+                <section class="faq-section" style="margin-top:48px">
+                    <h2>Perguntas Frequentes</h2>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Como o Uber garante a segurança durante a viagem?</span>
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>O Uber utiliza várias camadas de segurança: verificação de antecedentes dos motoristas, compartilhamento de localização em tempo real com contatos de emergência, botão de SOS conectado à polícia, gravação de áudio, verificação de rotas e monitoramento contínuo de comportamentos suspeitos.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Por que o preço varia ao longo do dia?</span>
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>O Uber usa "preço dinâmico" que leva em conta a demanda em relação à oferta de motoristas. Em horários de pico (rush hour) ou eventos especiais, quando há mais pedidos que motoristas disponíveis, o preço sobe. Isso incentiva mais motoristas a ficarem online.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Como posso saber se o motorista está tomando o melhor caminho?</span>
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>O app mostra o mapa em tempo real com a rota sendo percorrida. Você pode ver a posição atual, o destino marcado e a rota sugerida. Se desconfiar que o motorista está fazendo desvios, pode questionar ou usar o botão de emergência.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>O que acontece se haver problema durante a corrida?</span>
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Você pode relatar problemas diretamente no app, contactar o suporte via chat, ou usar o botão de emergência para contactar as autoridades. Todas as corridas são registradas e o Uber tem um processo de resolução de disputas muito rigoroso.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Como funciona a avaliação de motoristas?</span>
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Após cada corrida, passageiro e motorista se avaliam mutuamente em escala de 1 a 5 estrelas. Motoristas com rating abaixo de certo limite (geralmente 4.6) podem ser suspensos ou removidos da plataforma. O feedback é essencial para manter a qualidade.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Seção de Estatísticas -->
+                <section class="stats-section" style="margin-top:48px">
+                    <h2>Dados em Números</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Países com Uber</div>
+                            <div class="stat-desc">Presença global com padrões locais</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">~5M</div>
+                            <div class="stat-label">Motoristas Ativos</div>
+                            <div class="stat-desc">Conectados diariamente na plataforma</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">~120M</div>
+                            <div class="stat-label">Usuários Mensais</div>
+                            <div class="stat-desc">Utilizando o serviço globalmente</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">&lt;30s</div>
+                            <div class="stat-label">Tempo de Matching</div>
+                            <div class="stat-desc">Para encontrar um motorista</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+    </main>
+
+   
+
+    <footer class="site-footer">
+        <div class="container">
+            <p style="margin:0 0 10px">&copy; 2025 — Explicação didática sobre como o Uber funciona.</p>
+            <p style="margin:10px 0 0"><a class="btn" href="index.html">Voltar</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

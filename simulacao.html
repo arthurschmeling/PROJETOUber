@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simulador de Corrida - Uber</title>
+</head>
+
+<body>
+    <header class="hero">
+        <div class="container">
+            <h1>Simulador de Corrida</h1>
+            <p class="lead">Calcule o preço de sua corrida informando origem, destino e condições</p>
+            
+            <nav class="main-nav" aria-label="Navegação principal">
+                <a href="index.html" class="nav-btn">Início</a>
+                <a href="detalhes.html" class="nav-btn">Entenda como funciona</a>
+                <a href="parte-logica.html" class="nav-btn">Parte lógica</a>
+                <a href="simulacao.html" class="nav-btn active">Simulador</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="simulador-section">
+            <div class="simulador-card">
+                <h2>Calcule sua corrida</h2>
+                <p class="simulador-desc">Digite os endereços e selecione as condições para obter uma estimativa realista do preço considerando clima, trânsito, horário e dia da semana.</p>
+
+                <form class="simulador-form" id="simuladorForm">
+                    <!-- Seção de Localização -->
+                    <div class="form-section">
+                        <h3 class="section-title">📍 Localização</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="origem">Endereço de Origem</label>
+                                <input type="text" id="origem" placeholder="Ex: Av. Paulista, São Paulo" required>
+                                <small>Digite um endereço completo ou uma rua conhecida</small>
+                            </div>
+
+                            <div class="form-divider-vertical">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <polyline points="19 12 12 19 5 12"></polyline>
+                                </svg>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="destino">Endereço de Destino</label>
+                                <input type="text" id="destino" placeholder="Ex: Museu do Ipiranga, São Paulo" required>
+                                <small>Digite um endereço completo ou uma rua conhecida</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seção de Condições de Trânsito -->
+                    <div class="form-section">
+                        <h3 class="section-title">🚗 Condições de Trânsito</h3>
+                        <div class="form-group-options">
+                            <label>Nível de Trânsito:</label>
+                            <div class="options-grid">
+                                <label class="option-item">
+                                    <input type="radio" name="transito" value="baixo" checked>
+                                    <span class="option-label">
+                                        <span class="option-icon">🟢</span>
+                                                <span class="option-text">
+                                                    <strong>Tranquilo</strong>
+                                                    <small>Multiplicador: x0.9</small>
+                                                </span>
+                                    </span>
+                                </label>
+                                <label class="option-item">
+                                    <input type="radio" name="transito" value="normal">
+                                    <span class="option-label">
+                                        <span class="option-icon">🟡</span>
+                                        <span class="option-text">
+                                            <strong>Normal</strong>
+                                            <small>Multiplicador: x1.0</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="option-item">
+                                    <input type="radio" name="transito" value="intenso">
+                                    <span class="option-label">
+                                        <span class="option-icon">🔴</span>
+                                        <span class="option-text">
+                                            <strong>Intenso</strong>
+                                            <small>Multiplicador: x1.2</small>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seção de Clima -->
+                    <div class="form-section">
+                        <h3 class="section-title">☀️ Condições Climáticas</h3>
+                        <div class="form-group-options">
+                            <label>Estado do Clima:</label>
+                            <div class="options-grid">
+                                <label class="option-item">
+                                    <input type="radio" name="clima" value="bom" checked>
+                                    <span class="option-label">
+                                        <span class="option-icon">☀️</span>
+                                        <span class="option-text">
+                                            <strong>Bom</strong>
+                                            <small>Multiplicador: x1.0</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="option-item">
+                                    <input type="radio" name="clima" value="nublado">
+                                    <span class="option-label">
+                                        <span class="option-icon">☁️</span>
+                                        <span class="option-text">
+                                            <strong>Nublado</strong>
+                                            <small>Multiplicador: x1.05</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="option-item">
+                                    <input type="radio" name="clima" value="chuva">
+                                    <span class="option-label">
+                                        <span class="option-icon">🌧️</span>
+                                        <span class="option-text">
+                                            <strong>Chuva/Tempestade</strong>
+                                            <small>Multiplicador: x1.2</small>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seção de Horário -->
+                    <div class="form-section">
+                        <h3 class="section-title">⏰ Horário da Corrida</h3>
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="hora">Hora:</label>
+                                <div style="display:flex;gap:8px;align-items:center">
+                                    <input type="time" id="hora" required>
+                                    <input type="text" id="hora_text" placeholder="HH:MM" style="display:none;min-width:120px;padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);color:var(--accent)" />
+                                    <button type="button" id="toggleHora" class="btn" style="padding:6px 10px;font-size:0.9rem">Escrever</button>
+                                </div>
+                                <small>Selecione ou escreva o horário da corrida</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="dia">Dia da Semana:</label>
+                                <select id="dia" required>
+                                    <option value="segunda">Segunda-feira (x1.0)</option>
+                                    <option value="terca">Terça-feira (x1.0)</option>
+                                    <option value="quarta">Quarta-feira (x1.0)</option>
+                                    <option value="quinta">Quinta-feira (x1.0)</option>
+                                    <option value="sexta">Sexta-feira (x1.2)</option>
+                                    <option value="sabado">Sábado (x1.3)</option>
+                                    <option value="domingo">Domingo (x1.4)</option>
+                                </select>
+                                <small>Fins de semana têm preços mais altos</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <span class="btn-icon">🚗</span>
+                        Calcular Corrida
+                    </button>
+                </form>
+
+                <div id="resultado" class="resultado-container"></div>
+            </div>
+
+            <!-- Cards informativos -->
+            <div class="info-cards-grid">
+                <div class="info-card">
+                    <div class="info-icon">💰</div>
+                    <h4>Preço Base</h4>
+                    <p>R$ 4,00</p>
+                    <small>Valor inicial da corrida</small>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">📏</div>
+                    <h4>Preço por KM</h4>
+                    <p>R$ 0,80</p>
+                    <small>Custo por quilômetro rodado</small>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">📈</div>
+                    <h4>Multiplicadores</h4>
+                    <p>Variáveis</p>
+                    <small>Clima, trânsito, hora e dia</small>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">⏱️</div>
+                    <h4>Tempo Real</h4>
+                    <p>Estimado</p>
+                    <small>Baseado no trajeto</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Explicação de Fatores -->
+        <section class="fatores-section">
+            <h2>Como cada fator afeta o preço</h2>
+            <div class="fatores-grid">
+                <div class="fator-card">
+                    <div class="fator-icon">🚗</div>
+                    <h3>Trânsito</h3>
+                    <ul class="fator-list">
+                        <li>🟢 <strong>Tranquilo:</strong> x0.9 (10% desconto)</li>
+                        <li>🟡 <strong>Normal:</strong> x1.0 (preço padrão)</li>
+                        <li>🔴 <strong>Intenso:</strong> x1.2 (20% acréscimo)</li>
+                    </ul>
+                </div>
+
+                <div class="fator-card">
+                    <div class="fator-icon">☀️</div>
+                    <h3>Clima</h3>
+                    <ul class="fator-list">
+                        <li>☀️ <strong>Bom:</strong> x1.0 (padrão)</li>
+                        <li>☁️ <strong>Nublado:</strong> x1.05 (5% acréscimo)</li>
+                        <li>🌧️ <strong>Chuva:</strong> x1.2 (20% acréscimo)</li>
+                    </ul>
+                </div>
+
+                <div class="fator-card">
+                    <div class="fator-icon">⏰</div>
+                    <h3>Horário</h3>
+                    <ul class="fator-list">
+                        <li>🌅 <strong>06h-09h:</strong> x1.2 (pico matinal)</li>
+                        <li>🌄 <strong>09h-17h:</strong> x1.0 (normal)</li>
+                        <li>🌆 <strong>17h-20h:</strong> x1.3 (pico vespertino)</li>
+                        <li>🌙 <strong>20h-06h:</strong> x1.5 (noturno/madrugada)</li>
+                    </ul>
+                </div>
+
+                <div class="fator-card">
+                    <div class="fator-icon">📅</div>
+                    <h3>Dia da Semana</h3>
+                    <ul class="fator-list">
+                        <li>📊 <strong>Seg-Qui:</strong> x1.0 (padrão)</li>
+                        <li>🎉 <strong>Sexta:</strong> x1.2 (início weekend)</li>
+                        <li>🎊 <strong>Sábado:</strong> x1.3 (fim de semana)</li>
+                        <li>😴 <strong>Domingo:</strong> x1.4 (descanso dos motoristas)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Exemplo -->
+        <section class="exemplo-section">
+            <h2>Exemplo de Cálculo</h2>
+            <div class="exemplo-box">
+                <div class="exemplo-item">
+                    <span class="exemplo-label">Distância:</span>
+                    <span class="exemplo-valor">5 km</span>
+                </div>
+                <div class="exemplo-calculo">
+                    <span>=</span>
+                </div>
+                <div class="exemplo-calculo">
+                    <span>+</span>
+                </div>
+                <div class="exemplo-calculo">
+                    <span>=</span>
+                </div>
+                <div class="exemplo-calculo">
+                    <span>×</span>
+                </div>
+                <div class="exemplo-calculo">
+                    <span>=</span>
+                </div>
+                <div class="exemplo-item">
+                    <span class="exemplo-label">Preço Base:</span>
+                    <span class="exemplo-valor">R$ 5,00</span>
+                </div>
+                            <div class="exemplo-item">
+                                <span class="exemplo-label">(R$ 1,80 × 5 km):</span>
+                                <span class="exemplo-valor">R$ 9,00</span>
+                            </div>
+                            <div class="exemplo-item">
+                                <span class="exemplo-label">Subtotal:</span>
+                                <span class="exemplo-valor">R$ 14,00</span>
+                            </div>
+                            <div class="exemplo-item">
+                                <span class="exemplo-label">Multiplicadores:</span>
+                                <span class="exemplo-valor">1.97</span>
+                                <small>(0.9 × 1.2 × 1.3 × 1.4)</small>
+                            </div>
+                            <div class="exemplo-item exemplo-final">
+                                <span class="exemplo-label">Preço Final:</span>
+                                <span class="exemplo-valor">R$ 27,52</span>
+                            </div>
+            </div>
+        </section>
+
+        <!-- Seção de FAQ -->
+        <section class="faq-section">
+            <h2>Perguntas Frequentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Por que o preço é mais caro à noite?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>À noite e madrugada há menos motoristas disponíveis, então a demanda é maior. O Uber usa preço dinâmico (surge pricing) para incentivar mais motoristas a trabalhar nesses períodos, aumentando o preço em até 50%.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Por que domingo é mais caro?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No domingo, muitos motoristas descansam ou reduzem sua jornada, diminuindo a oferta. Com menos motoristas disponíveis e mesma demanda, o preço sobe em até 40% para manter o serviço funcionando.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Chuva realmente aumenta o preço?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! Em dias de chuva, a demanda sobe porque as pessoas preferem Uber ao invés de transporte público. Além disso, o trânsito costuma ficar mais intenso, aumentando o tempo de viagem. Tudo isso resulta em preços até 50% mais altos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Os multiplicadores se acumulam?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! Todos os multiplicadores são multiplicados entre si. Por exemplo: trânsito (1.5) × clima (1.5) × horário (1.5) × dia (1.4) = 4.73x o preço base. É por isso que uma corrida domingo à noite com chuva e trânsito intenso fica tão cara.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Consigo ter desconto no trânsito tranquilo?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! Quando o trânsito está muito tranquilo (fora dos horários de pico), você recebe um desconto de 20%, já que o motorista consegue fazer a corrida mais rápido e de forma mais eficiente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Links para outras páginas -->
+        <section class="links-section">
+            <h2>Quer saber mais?</h2>
+            <div class="links-grid">
+                <a href="detalhes.html" class="link-card">
+                    <div class="link-icon">📖</div>
+                    <h3>Como funciona o Uber</h3>
+                    <p>Entenda a explicação completa e detalhada</p>
+                    <span class="link-arrow">→</span>
+                </a>
+                <a href="parte-logica.html" class="link-card">
+                    <div class="link-icon">⚙️</div>
+                    <h3>Parte técnica</h3>
+                    <p>Análise lógica e código por trás</p>
+                    <span class="link-arrow">→</span>
+                </a>
+                <a href="index.html" class="link-card">
+                    <div class="link-icon">🏠</div>
+                    <h3>Voltar ao início</h3>
+                    <p>Retornar à página principal</p>
+                    <span class="link-arrow">→</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">&copy; 2025 — Simulador de Corrida Uber - Explicação didática.</div>
+    </footer>
+
+    <script>
+        // FAQ interativo
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Abrir primeira FAQ por padrão
+        const firstFaqItem = document.querySelector('.faq-item');
+        if (firstFaqItem) {
+            firstFaqItem.classList.add('active');
+        }
+
+        // Definir hora atual por padrão e preparar toggle para entrada manual
+        const horaInput = document.getElementById('hora');
+        const horaText = document.getElementById('hora_text');
+        const toggleHoraBtn = document.getElementById('toggleHora');
+        const agora = new Date();
+        const horas = String(agora.getHours()).padStart(2, '0');
+        const minutos = String(agora.getMinutes()).padStart(2, '0');
+        horaInput.value = `${horas}:${minutos}`;
+        horaText.value = `${horas}:${minutos}`;
+
+        // Alterna entre seleção e escrita manual do horário
+        toggleHoraBtn.addEventListener('click', function() {
+            const isTextShown = horaText.style.display !== 'none';
+            if (isTextShown) {
+                // voltar para time picker
+                horaText.style.display = 'none';
+                horaInput.style.display = '';
+                toggleHoraBtn.textContent = 'Escrever';
+            } else {
+                // mostrar campo de texto
+                horaText.style.display = '';
+                horaInput.style.display = 'none';
+                toggleHoraBtn.textContent = 'Usar seletor';
+            }
+        });
+
+        // Geocode usando Nominatim
+        async function geocode(endereco) {
+            try {
+                const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(endereco)}`;
+                const res = await fetch(url);
+                const data = await res.json();
+
+                if (data.length === 0) return null;
+
+                return {
+                    lat: data[0].lat,
+                    lon: data[0].lon
+                };
+            } catch (error) {
+                console.error('Erro ao geocodificar:', error);
+                return null;
+            }
+        }
+
+        // Calcular rota usando OSRM
+        async function calcularRota(origem, destino) {
+            try {
+                const url = `https://router.project-osrm.org/route/v1/driving/${origem.lon},${origem.lat};${destino.lon},${destino.lat}?overview=false`;
+                const res = await fetch(url);
+                const data = await res.json();
+
+                if (!data.routes || data.routes.length === 0) {
+                    return null;
+                }
+
+                const rota = data.routes[0];
+
+                return {
+                    distancia_km: rota.distance / 1000,
+                    duracao_min: rota.duration / 60
+                };
+            } catch (error) {
+                console.error('Erro ao calcular rota:', error);
+                return null;
+            }
+        }
+
+        // Calcular multiplicador de horário
+        function calcularMultiplicadorHorario(hora) {
+            const [horas, minutos] = hora.split(':').map(Number);
+            const totalMinutos = horas * 60 + minutos;
+            // definir multiplicador base por faixa
+            let mult;
+            if (totalMinutos >= 360 && totalMinutos < 540) mult = 1.2; // pico matinal
+            else if (totalMinutos >= 540 && totalMinutos < 1020) mult = 1.0; // normal
+            else if (totalMinutos >= 1020 && totalMinutos < 1200) mult = 1.3; // pico vespertino
+            else mult = 1.5; // noturno/madrugada
+
+            // não permitir multiplicadores que aumentem o preço
+            return Math.min(mult, 1.0);
+        }
+
+        // Calcular multiplicador de dia
+        function calcularMultiplicadorDia(dia) {
+            const multiplicadores = {
+                'segunda': 1.0,
+                'terca': 1.0,
+                'quarta': 1.0,
+                'quinta': 1.0,
+                'sexta': 1.2,
+                'sabado': 1.3,
+                'domingo': 1.4
+            };
+            const mult = multiplicadores[dia] || 1.0;
+            return Math.min(mult, 1.0);
+        }
+
+        // Calcular multiplicador de clima
+        function calcularMultiplicadorClima(clima) {
+            const multiplicadores = {
+                'bom': 1.0,
+                'nublado': 1.05,
+                'chuva': 1.2
+            };
+            const mult = multiplicadores[clima] || 1.0;
+            return Math.min(mult, 1.0);
+        }
+
+        // Calcular multiplicador de trânsito
+        function calcularMultiplicadorTransito(transito) {
+            const multiplicadores = {
+                'baixo': 0.9,
+                'normal': 1.0,
+                'intenso': 1.2
+            };
+            const mult = multiplicadores[transito] || 1.0;
+            return Math.min(mult, 1.0);
+        }
+
+        // Calcular preço (valores ajustados)
+        function calcularPreco(distancia, multiplicadorTotal) {
+            const precoBase = 5.00;
+            const precoPorKm = 1.80;
+            const subtotal = precoBase + (precoPorKm * distancia);
+            return subtotal * multiplicadorTotal;
+        }
+
+        // Obter descrição do horário
+        function getDescricaoHorario(hora, multiplicador) {
+            const [horas] = hora.split(':').map(Number);
+
+            if (horas >= 6 && horas < 9) return '🌅 Pico Matinal';
+            if (horas >= 9 && horas < 17) return '🌄 Normal';
+            if (horas >= 17 && horas < 20) return '🌆 Pico Vespertino';
+            return '🌙 Noturno/Madrugada';
+        }
+
+        // Simular corrida
+        async function simular(e) {
+            e.preventDefault();
+
+            const origemTxt = document.getElementById("origem").value.trim();
+            const destinoTxt = document.getElementById("destino").value.trim();
+            const transito = document.querySelector('input[name="transito"]:checked').value;
+            const clima = document.querySelector('input[name="clima"]:checked').value;
+            // obter hora do campo visível (time picker ou campo escrito)
+            const horaPicker = document.getElementById('hora');
+            const horaText = document.getElementById('hora_text');
+            let hora = '';
+            if (horaText && horaText.style.display !== 'none' && horaText.value.trim() !== '') {
+                hora = horaText.value.trim();
+            } else if (horaPicker) {
+                hora = horaPicker.value;
+            }
+            // validar formato HH:MM
+            if (!/^\d{1,2}:\d{2}$/.test(hora)) {
+                resultadoDiv.innerHTML = '<div class="erro">Por favor, informe um horário válido no formato HH:MM.</div>';
+                return;
+            }
+            const dia = document.getElementById("dia").value;
+            const resultadoDiv = document.getElementById("resultado");
+
+            if (!origemTxt || !destinoTxt) {
+                resultadoDiv.innerHTML = '<div class="erro">Por favor, preencha origem e destino.</div>';
+                return;
+            }
+
+            resultadoDiv.innerHTML = '<div class="carregando"><span class="spinner"></span> Calculando...</div>';
+
+            const origem = await geocode(origemTxt);
+            const destino = await geocode(destinoTxt);
+
+            if (!origem || !destino) {
+                resultadoDiv.innerHTML = '<div class="erro">❌ Erro: não foi possível localizar os endereços. Tente ser mais específico.</div>';
+                return;
+            }
+
+            const rota = await calcularRota(origem, destino);
+
+            if (!rota) {
+                resultadoDiv.innerHTML = '<div class="erro">❌ Erro: não foi possível calcular a rota entre os pontos.</div>';
+                return;
+            }
+
+            // Calcular multiplicadores
+            const multTransito = calcularMultiplicadorTransito(transito);
+            const multClima = calcularMultiplicadorClima(clima);
+            const multHorario = calcularMultiplicadorHorario(hora);
+            const multDia = calcularMultiplicadorDia(dia);
+            const multiplicadorTotal = multTransito * multClima * multHorario * multDia;
+
+            const precoBase = 5.00;
+            const precoPorKm = 1.80;
+            const subtotal = precoBase + (precoPorKm * rota.distancia_km);
+            const precoFinal = calcularPreco(rota.distancia_km, multiplicadorTotal);
+
+            // Mapear dia para nome
+            const diasNome = {
+                'segunda': 'Segunda-feira',
+                'terca': 'Terça-feira',
+                'quarta': 'Quarta-feira',
+                'quinta': 'Quinta-feira',
+                'sexta': 'Sexta-feira',
+                'sabado': 'Sábado',
+                'domingo': 'Domingo'
+            };
+
+            // Mapear clima para ícone
+            const climasNome = {
+                'bom': '☀️ Bom',
+                'nublado': '☁️ Nublado',
+                'chuva': '🌧️ Chuva/Tempestade'
+            };
+
+            // Mapear trânsito para ícone
+            const transitoNome = {
+                'baixo': '🟢 Tranquilo',
+                'normal': '🟡 Normal',
+                'intenso': '🔴 Intenso'
+            };
+
+            resultadoDiv.innerHTML = `
+                <div class="resultado">
+                    <h3>✅ Resultado da Corrida</h3>
+                    
+                    <div class="resultado-detalhes">
+                        <h4>📊 Dados da Rota</h4>
+                        <div class="resultado-grid">
+                            <div class="resultado-item">
+                                <span class="resultado-label">📏 Distância</span>
+                                <span class="resultado-valor">${rota.distancia_km.toFixed(2)} km</span>
+                            </div>
+                            <div class="resultado-item">
+                                <span class="resultado-label">⏱️ Tempo estimado</span>
+                                <span class="resultado-valor">${Math.round(rota.duracao_min)} min</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resultado-detalhes">
+                        <h4>🎯 Condições Selecionadas</h4>
+                        <div class="resultado-grid">
+                            <div class="resultado-item">
+                                <span class="resultado-label">Clima</span>
+                                <span class="resultado-valor">${climasNome[clima]} (x${multClima})</span>
+                            </div>
+                            <div class="resultado-item">
+                                <span class="resultado-label">Trânsito</span>
+                                <span class="resultado-valor">${transitoNome[transito]} (x${multTransito})</span>
+                            </div>
+                            <div class="resultado-item">
+                                <span class="resultado-label">Horário</span>
+                                <span class="resultado-valor">${getDescricaoHorario(hora, multHorario)} (x${multHorario})</span>
+                            </div>
+                            <div class="resultado-item">
+                                <span class="resultado-label">Dia</span>
+                                <span class="resultado-valor">${diasNome[dia]} (x${multDia})</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resultado-detalhes">
+                        <h4>💰 Cálculo do Preço</h4>
+                        <div class="calculo-detalhado">
+                            <div class="calculo-linha">
+                                <span>Preço Base:</span>
+                                <span class="calculo-valor">R$ ${precoBase.toFixed(2)}</span>
+                            </div>
+                            <div class="calculo-linha">
+                                <span>Custo por KM (R$ ${precoPorKm} × ${rota.distancia_km.toFixed(2)} km):</span>
+                                <span class="calculo-valor">R$ ${(precoPorKm * rota.distancia_km).toFixed(2)}</span>
+                            </div>
+                            <div class="calculo-linha destaque">
+                                <span>Subtotal:</span>
+                                <span class="calculo-valor">R$ ${subtotal.toFixed(2)}</span>
+                            </div>
+                            <div class="calculo-linha">
+                                <span>Multiplicador Total (${multTransito} × ${multClima} × ${multHorario} × ${multDia}):</span>
+                                <span class="calculo-valor">x${multiplicadorTotal.toFixed(2)}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resultado-preco">
+                        <span>Preço Final Estimado:</span>
+                        <span class="preco-valor">R$ ${precoFinal.toFixed(2)}</span>
+                    </div>
+                    <small class="resultado-nota">💡 Este é um valor estimado. O preço final pode variar dependendo de condições em tempo real.</small>
+                </div>
+            `;
+        }
+
+        // Event listener para o formulário
+        document.getElementById('simuladorForm').addEventListener('submit', simular);
+    </script>
+
+</body>
+
+</html>
