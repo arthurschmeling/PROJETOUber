@@ -30,6 +30,19 @@ body{
     padding:56px 0 36px;
     background: linear-gradient(90deg, rgba(6,6,6,0.98), rgba(20,20,20,0.98));
     border-bottom:1px solid rgba(255,255,255,0.04);
+    position: relative;
+}
+.header-logo{
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 10;
+}
+.logo-img{
+    height: 300px;
+    width: aupx;
+    display: block;
+    object-fit: contain;
 }
 .hero h1{
     margin:0 0 10px;
@@ -248,14 +261,23 @@ a:focus,button:focus{outline:2px solid rgba(255,255,255,0.12);outline-offset:2px
 .muted{color:var(--muted)}
 .preview-img{
     display:block;
-    max-width:100%;
-    width:420px;
+    width:100%;
+    max-width:900px; /* limite máximo para telas grandes */
     height:auto;
+    max-height:65vh; /* proporcional à altura da viewport */
     object-fit:contain;
     transform:none;
     margin:0 auto;
     border-radius:8px;
-    box-shadow:0 8px 24px rgba(0,0,0,0.6);
+    box-shadow:0 8px 24px rgba(0,0,0,0.45);
+}
+
+/* Quando a tela for muito estreita, reduzir o max-height para não ocuparem toda a altura */
+@media (max-width:720px){
+    .preview-img{max-height:45vh}
+}
+@media (max-width:420px){
+    .preview-img{max-height:35vh}
 }
 
 /* Estilos para página inicial melhorada */
@@ -648,4 +670,345 @@ a:focus,button:focus{outline:2px solid rgba(255,255,255,0.12);outline-offset:2px
     .ejemplo-box{flex-direction:column}
     .option-label{flex-direction:column;text-align:center}
     .option-text{text-align:center}
+}
+
+/* ===== ESTILOS PÁGINA SOBRE NÓS ===== */
+
+.about-intro{
+    text-align:center;
+    margin:60px 0;
+    padding:40px 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.about-intro h2{
+    font-size:2.2rem;
+    margin-bottom:20px;
+    color:var(--accent);
+}
+
+.intro-text{
+    font-size:1.05rem;
+    color:var(--muted);
+    max-width:700px;
+    margin:0 auto;
+    line-height:1.8;
+}
+
+/* Seção de Team */
+.team-section{
+    margin:80px 0;
+}
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:48px;
+    margin-top:40px;
+}
+
+/* Cards de Membro */
+.member-card{
+    background:linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+    overflow:hidden;
+    transition:all 300ms cubic-bezier(0.34,1.56,0.64,1);
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+.member-card:hover{
+    border-color:rgba(255,255,255,0.2);
+    background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03));
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+
+.member-image-wrapper{
+    position:relative;
+    overflow:hidden;
+    height:320px;
+    background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02));
+}
+
+.member-image{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 400ms ease;
+}
+
+.member-card:hover .member-image{
+    transform:scale(1.08);
+}
+
+.member-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.7) 100%);
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    padding:20px;
+    opacity:0;
+    transition:opacity 300ms ease;
+}
+
+.member-card:hover .member-overlay{
+    opacity:1;
+}
+
+.member-role-badge{
+    background:linear-gradient(135deg,rgba(255,255,255,0.2),rgba(255,255,255,0.1));
+    color:var(--accent);
+    padding:8px 16px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:0.9rem;
+    border:1px solid rgba(255,255,255,0.3);
+    backdrop-filter:blur(10px);
+}
+
+.member-content{
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+.member-content h3{
+    font-size:1.5rem;
+    margin:0 0 12px;
+    color:var(--accent);
+}
+
+.member-date{
+    font-size:0.95rem;
+    color:var(--muted);
+    margin:0 0 20px;
+    font-weight:600;
+}
+
+.member-info{
+    flex:1;
+    margin-bottom:24px;
+}
+
+.description{
+    font-size:0.95rem;
+    color:var(--muted);
+    line-height:1.7;
+    margin:0;
+}
+
+.member-links{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.social-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 16px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:8px;
+    color:var(--accent);
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.9rem;
+    transition:all 200ms ease;
+}
+
+.social-link:hover{
+    background:rgba(255,255,255,0.1);
+    border-color:rgba(255,255,255,0.25);
+    transform:translateY(-2px);
+}
+
+.icon{
+    font-size:1.2rem;
+}
+
+/* Seção Destaques */
+.project-highlights{
+    margin:100px 0;
+}
+
+.highlights-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    margin-top:32px;
+}
+
+.highlight-card{
+    background:linear-gradient(135deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:28px;
+    text-align:center;
+    transition:all 300ms ease;
+    opacity:0;
+    animation:fadeInUp 600ms ease forwards;
+}
+
+.highlight-card:nth-child(1){animation-delay:100ms}
+.highlight-card:nth-child(2){animation-delay:200ms}
+.highlight-card:nth-child(3){animation-delay:300ms}
+.highlight-card:nth-child(4){animation-delay:400ms}
+
+.highlight-card:hover{
+    background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03));
+    border-color:rgba(255,255,255,0.15);
+    transform:translateY(-8px);
+    box-shadow:0 16px 40px rgba(0,0,0,0.3);
+}
+
+.highlight-icon{
+    font-size:2.8rem;
+    margin-bottom:16px;
+    display:block;
+}
+
+.highlight-card h4{
+    font-size:1.2rem;
+    margin:0 0 12px;
+    color:var(--accent);
+}
+
+.highlight-card p{
+    font-size:0.95rem;
+    color:var(--muted);
+    margin:0;
+    line-height:1.6;
+}
+
+/* Seção Tecnologias */
+.tech-section{
+    margin:100px 0 80px;
+    padding:40px 0;
+}
+
+.tech-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.tech-card{
+    background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px;
+    padding:24px;
+    text-align:center;
+    transition:all 280ms ease;
+    cursor:pointer;
+}
+
+.tech-card:hover{
+    background:linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.04));
+    border-color:rgba(255,255,255,0.2);
+    transform:translateY(-6px) scale(1.02);
+    box-shadow:0 12px 32px rgba(0,0,0,0.35);
+}
+
+.tech-icon{
+    font-size:2.5rem;
+    display:block;
+    margin-bottom:12px;
+}
+
+.tech-card h4{
+    font-size:1.1rem;
+    margin:0 0 8px;
+    color:var(--accent);
+    font-weight:700;
+}
+
+.tech-card p{
+    font-size:0.85rem;
+    color:var(--muted);
+    margin:0;
+    line-height:1.5;
+}
+
+/* Animações */
+@keyframes fadeInUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.fade-in{
+    animation:fadeInUp 600ms ease forwards;
+}
+
+/* Footer customizado para página sobre nós */
+.site-footer{
+    background:linear-gradient(180deg,rgba(15,17,19,0.5),rgba(0,0,0,0.8));
+    border-top:1px solid rgba(255,255,255,0.06);
+    padding:48px 0 32px;
+    margin-top:60px;
+}
+
+.site-footer .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.site-footer p{
+    margin:0;
+    color:var(--muted);
+    font-size:0.95rem;
+}
+
+.footer-nav{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+}
+
+.footer-nav a{
+    color:var(--accent);
+    text-decoration:none;
+    font-size:0.95rem;
+    transition:color 200ms ease;
+    font-weight:500;
+}
+
+.footer-nav a:hover{
+    color:rgba(255,255,255,0.7);
+}
+
+/* Responsividade */
+@media (max-width:1200px){
+    .highlights-grid{grid-template-columns:repeat(2,1fr)}
+    .tech-grid{grid-template-columns:repeat(2,1fr)}
+    .team-grid{grid-template-columns:1fr}
+    .site-footer .container{flex-direction:column;gap:24px;text-align:center}
+    .footer-nav{justify-content:center}
+}
+
+@media (max-width:768px){
+    .about-intro h2{font-size:1.8rem}
+    .intro-text{font-size:1rem}
+    .member-image-wrapper{height:250px}
+    .member-content{padding:24px}
+    .highlights-grid{grid-template-columns:1fr}
+    .tech-grid{grid-template-columns:1fr}
+    .team-grid{gap:32px}
 }

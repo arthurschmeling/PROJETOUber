@@ -11,13 +11,17 @@
 <body>
     <header class="hero">
         <div class="container">
+            <div class="header-logo">
+                <img src="assets/img/cuber.png" alt="cuBer Logo" class="logo-img">
+            </div>
             <h1>Parte Lógica do Uber</h1>
             <p class="lead">Uma visão clara e didática das decisões técnicas, algoritmos e arquitetura por trás de uma plataforma de mobilidade.</p>
 
             <nav class="main-nav" aria-label="Navegação principal">
-                <a href="index.html" class="nav-btn">Início</a>
+        <a href="index.html" class="nav-btn">Início</a>
                 <a href="detalhes.html" class="nav-btn">Entenda como funciona</a>
                 <a href="parte-logica.html" class="nav-btn active">Parte lógica</a>
+                <a href="sobreNos.html" class="nav-btn active">Criadores do site</a>
             </nav>
 
             <div class="hero-features" style="margin-top:18px">
@@ -78,6 +82,7 @@
                     <div class="preview-inner">
                         <img id="previewImg" src="assets/img/banco.png" alt="Diagrama de banco de dados" class="preview-img" role="button" tabindex="0" aria-label="Ampliar diagrama"/>
                         <p class="muted" style="margin-top:8px;font-size:0.9rem">Exemplo simplificado: entidades Usuário e Viagem.</p>
+                        <img src="assets/img/fluxograma.png" alt="Fluxograma do processamento" class="preview-img">
                     </div>
                 </div>
             </aside>
@@ -250,25 +255,26 @@ CREATE TABLE viagem (
                 </footer>
         </main>
 
-        <!-- Image modal / lightbox -->
+        <!-- Image modal / lightbox (abre ao clicar em qualquer .preview-img) -->
         <div id="imgModal" class="img-modal-overlay" aria-hidden="true">
                 <div class="img-modal-wrap" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-                        <button id="imgModalClose" class="img-modal-close" aria-label="Fechar">Fechar ✕</button>
+                        <button id="imgModalClose" class="img-modal-close" aria-label="Fechar">✕</button>
                         <img id="imgModalImg" src="" alt="Diagrama ampliado" />
                 </div>
         </div>
 
         <script>
         (function(){
-            const preview = document.getElementById('previewImg');
+            const previews = Array.from(document.querySelectorAll('.preview-img'));
             const modal = document.getElementById('imgModal');
             const modalImg = document.getElementById('imgModalImg');
             const closeBtn = document.getElementById('imgModalClose');
 
-            if(!preview || !modal) return;
+            if(!modal || previews.length === 0) return;
 
-            function openModal(){
-                modalImg.src = preview.getAttribute('src');
+            function openModalWith(src, alt){
+                modalImg.src = src;
+                modalImg.alt = alt || '';
                 modal.classList.add('active');
                 modal.setAttribute('aria-hidden','false');
                 closeBtn.focus();
@@ -280,11 +286,14 @@ CREATE TABLE viagem (
                 modal.setAttribute('aria-hidden','true');
                 modalImg.src = '';
                 document.body.style.overflow = '';
-                preview.focus();
             }
 
-            preview.addEventListener('click', openModal);
-            preview.addEventListener('keypress', function(e){ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }});
+            previews.forEach(img => {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', () => openModalWith(img.src, img.alt));
+                img.addEventListener('keypress', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModalWith(img.src, img.alt); }});
+            });
+
             closeBtn.addEventListener('click', closeModal);
             modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
             document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
