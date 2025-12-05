@@ -12,7 +12,7 @@
     <header class="hero">
         <div class="container">
             <div class="header-logo">
-                <img src="assets/img/cuber.png" alt="cuBer Logo" class="logo-img">
+                <img src="assets/img/logo2.0.png" alt="cuBer Logo" class="logo-img">
             </div>
             <h1>Simulador de Corrida</h1>
             <p class="lead">Calcule o preço de sua corrida informando origem, destino e condições</p>
@@ -491,23 +491,23 @@
                 'terca': 1.0,
                 'quarta': 1.0,
                 'quinta': 1.0,
-                'sexta': 1.2,
-                'sabado': 1.3,
-                'domingo': 1.4
+                'sexta': 1.12,
+                'sabado': 1.18,
+                'domingo': 1.25
             };
             const mult = multiplicadores[dia] || 1.0;
-            return Math.min(mult, 1.0);
+            return mult;
         }
 
         // Calcular multiplicador de clima
         function calcularMultiplicadorClima(clima) {
             const multiplicadores = {
                 'bom': 1.0,
-                'nublado': 1.05,
-                'chuva': 1.2
+                'nublado': 1.03,
+                'chuva': 1.12
             };
             const mult = multiplicadores[clima] || 1.0;
-            return Math.min(mult, 1.0);
+            return mult;
         }
 
         // Calcular multiplicador de trânsito

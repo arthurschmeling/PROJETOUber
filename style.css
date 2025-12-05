@@ -39,10 +39,11 @@ body{
     z-index: 10;
 }
 .logo-img{
-    height: 300px;
-    width: aupx;
+    height: 140px;
+    width: auto;
     display: block;
     object-fit: contain;
+    transition: height 200ms ease;
 }
 .hero h1{
     margin:0 0 10px;
@@ -52,6 +53,62 @@ body{
 }
 .hero .container{display:flex;flex-direction:column;align-items:center;text-align:center}
 .lead{margin:0;color:var(--muted);font-size:1.05rem}
+
+/* Responsividade do header para mobile */
+@media (max-width: 720px){
+    .header-logo{
+        top: 20px;
+        left: 20px;
+    }
+    .logo-img{
+        height: 65px;
+    }
+    .hero h1{
+        font-size: 2rem;
+    }
+    .lead{
+        font-size: 0.95rem;
+    }
+}
+@media (max-width: 480px){
+    .header-logo{
+        top: 16px;
+        left: 16px;
+    }
+    .logo-img{
+        height: 55px;
+    }
+    .hero{
+        padding: 40px 0 28px;
+    }
+    .hero h1{
+        font-size: 1.5rem;
+        margin: 0 0 8px;
+    }
+    .lead{
+        font-size: 0.85rem;
+    }
+    .main-nav{
+        gap: 6px;
+        margin-top: 12px;
+    }
+    .nav-btn{
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}
+@media (max-width: 360px){
+    .logo-img{
+        height: 50px;
+    }
+    .hero h1{
+        font-size: 1.3rem;
+    }
+    .nav-btn{
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
 
 .main-nav{margin-top:18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .nav-btn{

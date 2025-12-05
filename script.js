@@ -95,8 +95,8 @@ async function calcularRota(origem, destino) {
 }
 
 function calcularPreco(distancia, multiplicador) {
-    const precoBase = 4.00;
-    const precoPorKm = 0.75;
+    const precoBase = 2.00;
+    const precoPorKm = 0.40;
 
     return precoBase + (precoPorKm * distancia) * multiplicador;
 }
