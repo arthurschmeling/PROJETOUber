@@ -39,7 +39,7 @@ body{
     z-index: 10;
 }
 .logo-img{
-    height: 140px;
+    height: 200px;
     width: auto;
     display: block;
     object-fit: contain;
