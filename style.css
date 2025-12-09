@@ -33,10 +33,12 @@ body{
     position: relative;
 }
 .header-logo{
-    position: absolute;
-    top: 24px;
-    left: 24px;
+    position: relative;
+    margin: 0 auto 14px;
     z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .logo-img{
     height: 200px;
@@ -57,8 +59,7 @@ body{
 /* Responsividade do header para mobile */
 @media (max-width: 720px){
     .header-logo{
-        top: 20px;
-        left: 20px;
+        margin-bottom:12px;
     }
     .logo-img{
         height: 65px;
@@ -86,8 +87,7 @@ body{
 }
 @media (max-width: 480px){
     .header-logo{
-        top: 16px;
-        left: 16px;
+        margin-bottom:10px;
     }
     .logo-img{
         height: 55px;
