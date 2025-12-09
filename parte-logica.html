@@ -58,6 +58,11 @@
     <main class="container">
         <!-- Seção de Introdução -->
         <section class="intro-section">
+            <div class="intro-visual">
+                <div class="visual-container">
+                    <img src="assets/img/fluxograma.png" alt="Fluxograma do sistema Uber" class="preview-img">
+                </div>
+            </div>
             <div class="intro-content">
                 <h2>Como a tecnologia conecta tudo?</h2>
                 <p>O Uber não é apenas um app. Por trás das cortinas, funciona uma arquitetura complexa que processa milhares de eventos por segundo, conectando passageiros e motoristas de forma inteligente e eficiente.</p>
@@ -77,15 +82,53 @@
                     </div>
                 </div>
             </div>
-
-            <aside class="intro-visual">
-                <div class="visual-container">
-                    <img src="assets/img/fluxograma.png" alt="Fluxograma do sistema Uber" class="preview-img">
-                </div>
-            </aside>
         </section>
 
-        <!-- Seção dos 4 Pilares Principais -->
+        <!-- Seção de Mockups - Interface do Uber -->
+        <section class="mockups-section">
+            <h2>Interface Visual do Uber</h2>
+            <p class="section-intro">Confira como a plataforma se apresenta aos usuários, integrando todos os conceitos tecnológicos</p>
+            
+            <div class="mockups-container">
+                <div class="mockup-card">
+                    <div class="mockup-title">Planejamento de Viagem</div>
+                    <img src="assets/img/mockup3.png" alt="Mockup - Planejamento de viagem" class="preview-img mockup-img">
+                    <div class="mockup-desc">Tela inicial onde o usuário planeja sua próxima viagem, selecionando origem, destino e horário</div>
+                </div>
+
+                <div class="mockup-card">
+                    <div class="mockup-title">Rastreamento em Tempo Real</div>
+                    <img src="assets/img/mockup.png" alt="Mockup - Rastreamento em tempo real" class="preview-img mockup-img">
+                    <div class="mockup-desc">Visualização do mapa com a localização do motorista e da rota em tempo real</div>
+                </div>
+            </div>
+
+            <div class="mockup-explanation">
+                <h3>Por que esses elementos são importantes?</h3>
+                <div class="explanation-grid">
+                    <div class="explanation-item">
+                        <div class="explanation-icon">🎯</div>
+                        <h4>Interface Intuitiva</h4>
+                        <p>A UX/UI foi projetada para ser simples e acessível a qualquer usuário, independentemente da experiência técnica</p>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="explanation-icon">📡</div>
+                        <h4>Sincronização em Tempo Real</h4>
+                        <p>Todos os dados são atualizados instantaneamente usando WebSockets e APIs REST, garantindo informações sempre precisas</p>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="explanation-icon">🔄</div>
+                        <h4>Feedback Visual</h4>
+                        <p>Indicadores visuais claros informam o status da viagem, localização do motorista e tempo estimado de chegada</p>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="explanation-icon">🛡️</div>
+                        <h4>Segurança Visual</h4>
+                        <p>Elementos como verificação de motorista, compartilhamento de viagem e histórico garantem confiança ao usuário</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="topics-section">
             <h2>Os 4 Pilares Tecnológicos</h2>
             <div class="topics-grid">
@@ -121,33 +164,33 @@
 
         <!-- Seção Banco de Dados -->
         <section class="db-section" style="margin-top:80px">
-            <h2>A Base de Dados: O Coração do Sistema</h2>
-            <div class="db-content">
-                <div class="db-visual">
-                    <img src="assets/img/banco.png" alt="Diagrama de banco de dados" class="preview-img">
-                </div>
+            <div class="db-visual" style="margin-bottom:48px">
+                <img src="assets/img/banco.png" alt="Diagrama de banco de dados" class="preview-img" style="width:100%; max-width:800px; height:auto; display:block; margin:0 auto; border:1px solid rgba(255,255,255,0.06); border-radius:16px;">
+            </div>
+            
+            <div class="db-info">
+                <h2>A Base de Dados: O Coração do Sistema</h2>
+                <h3 style="margin-top:32px; color:var(--accent)">Entidades Principais</h3>
                 
-                <div class="db-info">
-                    <h3>Entidades Principais</h3>
-                    
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:24px; margin-top:28px;">
                     <div class="entity-card">
-                        <h4>👤 Usuário</h4>
-                        <p>Armazena dados do passageiro: ID, nome, email, rating, métodos de pagamento e histórico de viagens.</p>
+                        <h4 style="margin:0 0 12px; color:var(--accent); font-size:1.1rem">👤 Usuário</h4>
+                        <p style="margin:0; color:var(--muted); font-size:0.95rem">Armazena dados do passageiro: ID, nome, email, rating, métodos de pagamento e histórico de viagens.</p>
                     </div>
 
                     <div class="entity-card">
-                        <h4>🚗 Motorista</h4>
-                        <p>Informações do motorista: documentos, localização em tempo real, status (online/offline), rating e renda.</p>
+                        <h4 style="margin:0 0 12px; color:var(--accent); font-size:1.1rem">🚗 Motorista</h4>
+                        <p style="margin:0; color:var(--muted); font-size:0.95rem">Informações do motorista: documentos, localização em tempo real, status (online/offline), rating e renda.</p>
                     </div>
 
                     <div class="entity-card">
-                        <h4>🛣️ Viagem</h4>
-                        <p>Detalhes de cada corrida: origem, destino, distância, duração, preço final, timestamp e status.</p>
+                        <h4 style="margin:0 0 12px; color:var(--accent); font-size:1.1rem">🛣️ Viagem</h4>
+                        <p style="margin:0; color:var(--muted); font-size:0.95rem">Detalhes de cada corrida: origem, destino, distância, duração, preço final, timestamp e status.</p>
                     </div>
 
                     <div class="entity-card">
-                        <h4>⭐ Avaliação</h4>
-                        <p>Sistema de rating bilateral: passageiro avalia motorista e vice-versa. Essencial para manter qualidade.</p>
+                        <h4 style="margin:0 0 12px; color:var(--accent); font-size:1.1rem">⭐ Avaliação</h4>
+                        <p style="margin:0; color:var(--muted); font-size:0.95rem">Sistema de rating bilateral: passageiro avalia motorista e vice-versa. Essencial para manter qualidade.</p>
                     </div>
                 </div>
             </div>
@@ -155,41 +198,42 @@
 
         <!-- Seção Matchmaking -->
         <section id="matchmaking" style="margin-top:80px">
-            <h2>Como Funciona o Matchmaking?</h2>
+            <h2 style="font-size:2rem; margin:0 0 48px; color:var(--accent)">Como Funciona o Matchmaking?</h2>
+            
             <div class="flow-steps" style="margin-top:32px">
                 <div class="flow-item">
                     <div class="flow-number">1</div>
-                    <h4>Solicitação</h4>
-                    <p>Passageiro envia origem e destino</p>
+                    <h4 style="margin:0 0 8px; color:var(--accent)">Solicitação</h4>
+                    <p style="margin:0; color:var(--muted)">Passageiro envia origem e destino</p>
                 </div>
 
                 <div class="flow-arrow">→</div>
 
                 <div class="flow-item">
                     <div class="flow-number">2</div>
-                    <h4>Filtragem</h4>
-                    <p>Sistema identifica motoristas próximos</p>
+                    <h4 style="margin:0 0 8px; color:var(--accent)">Filtragem</h4>
+                    <p style="margin:0; color:var(--muted)">Sistema identifica motoristas próximos</p>
                 </div>
 
                 <div class="flow-arrow">→</div>
 
                 <div class="flow-item">
                     <div class="flow-number">3</div>
-                    <h4>Ordenação</h4>
-                    <p>Calcula ETA e prioriza os melhores</p>
+                    <h4 style="margin:0 0 8px; color:var(--accent)">Ordenação</h4>
+                    <p style="margin:0; color:var(--muted)">Calcula ETA e prioriza os melhores</p>
                 </div>
 
                 <div class="flow-arrow">→</div>
 
                 <div class="flow-item">
                     <div class="flow-number">4</div>
-                    <h4>Oferta</h4>
-                    <p>Envia proposta para motorista aceitar</p>
+                    <h4 style="margin:0 0 8px; color:var(--accent)">Oferta</h4>
+                    <p style="margin:0; color:var(--muted)">Envia proposta para motorista aceitar</p>
                 </div>
             </div>
 
-            <div class="card card-body" style="margin-top:32px">
-                <h3 style="margin-top:0">Pseudocódigo do Algoritmo</h3>
+            <div class="code-section" style="margin-top:48px">
+                <h3 style="margin:0 0 24px; color:var(--accent)">Pseudocódigo do Algoritmo</h3>
                 <pre class="formula-box"><code>function findBestDriver(request, drivers) {
     // 1. Filtrar motoristas disponíveis em raio de 15km
     const candidates = drivers.filter(d => 
@@ -214,26 +258,26 @@
 
         <!-- Seção Roteamento -->
         <section id="routing" style="margin-top:80px">
-            <h2>Roteamento e Estimativas de Tempo</h2>
-            <div class="topics-grid" style="grid-template-columns: 1fr 1fr; margin-top:32px">
+            <h2 style="font-size:2rem; margin:0 0 48px; color:var(--accent)">Roteamento e Estimativas de Tempo</h2>
+            <div class="topics-grid" style="grid-template-columns: 1fr 1fr;">
                 <div class="topic-card">
                     <div class="topic-icon">🗺️</div>
-                    <h3>APIs Usadas</h3>
-                    <ul style="margin-top:12px; color:var(--muted); text-align:left">
-                        <li>✓ OSRM: Roteamento rápido e livre</li>
-                        <li>✓ Nominatim: Geocoding e reverso</li>
-                        <li>✓ Google Maps: Tráfego em tempo real</li>
+                    <h3 style="margin:0 0 16px; color:var(--accent)">APIs Usadas</h3>
+                    <ul style="margin-top:12px; color:var(--muted); text-align:left; list-style:none; padding:0">
+                        <li style="margin-bottom:8px">✓ OSRM: Roteamento rápido e livre</li>
+                        <li style="margin-bottom:8px">✓ Nominatim: Geocoding e reverso</li>
+                        <li style="margin-bottom:8px">✓ Google Maps: Tráfego em tempo real</li>
                         <li>✓ OpenStreetMap: Dados de ruas</li>
                     </ul>
                 </div>
 
                 <div class="topic-card">
                     <div class="topic-icon">📈</div>
-                    <h3>Fatores Considerados</h3>
-                    <ul style="margin-top:12px; color:var(--muted); text-align:left">
-                        <li>✓ Velocidade média por trecho</li>
-                        <li>✓ Horário do dia</li>
-                        <li>✓ Condições climáticas</li>
+                    <h3 style="margin:0 0 16px; color:var(--accent)">Fatores Considerados</h3>
+                    <ul style="margin-top:12px; color:var(--muted); text-align:left; list-style:none; padding:0">
+                        <li style="margin-bottom:8px">✓ Velocidade média por trecho</li>
+                        <li style="margin-bottom:8px">✓ Horário do dia</li>
+                        <li style="margin-bottom:8px">✓ Condições climáticas</li>
                         <li>✓ Histórico de congestionamento</li>
                     </ul>
                 </div>
@@ -242,7 +286,7 @@
 
         <!-- Seção de Precificação Dinâmica -->
         <section style="margin-top:80px">
-            <h2>A Fórmula da Precificação</h2>
+            <h2 style="font-size:2rem; margin:0 0 40px; color:var(--accent)">A Fórmula da Precificação</h2>
             <div class="exemplo-box" style="margin-top:32px">
                 <div class="exemplo-item">
                     <div class="exemplo-label">Preço Base</div>
@@ -260,10 +304,11 @@
                 </div>
             </div>
 
+            <h3 style="font-size:1.5rem; margin:48px 0 32px; color:var(--accent)">Fatores de Ajuste</h3>
             <div class="fatores-grid" style="margin-top:40px">
                 <div class="fator-card">
                     <div class="fator-icon">⏰</div>
-                    <h3>Horário</h3>
+                    <h4 style="margin:0 0 16px; color:var(--accent)">Horário</h4>
                     <ul class="fator-list">
                         <li>Pico matinal (6-9h): <strong>+20%</strong></li>
                         <li>Normal: <strong>0%</strong></li>
@@ -274,7 +319,7 @@
 
                 <div class="fator-card">
                     <div class="fator-icon">🚗</div>
-                    <h3>Trânsito</h3>
+                    <h4 style="margin:0 0 16px; color:var(--accent)">Trânsito</h4>
                     <ul class="fator-list">
                         <li>Leve: <strong>0%</strong></li>
                         <li>Moderado: <strong>+10%</strong></li>
@@ -285,7 +330,7 @@
 
                 <div class="fator-card">
                     <div class="fator-icon">☁️</div>
-                    <h3>Clima</h3>
+                    <h4 style="margin:0 0 16px; color:var(--accent)">Clima</h4>
                     <ul class="fator-list">
                         <li>Bom: <strong>0%</strong></li>
                         <li>Nublado: <strong>+3%</strong></li>
@@ -296,7 +341,7 @@
 
                 <div class="fator-card">
                     <div class="fator-icon">📅</div>
-                    <h3>Dia da Semana</h3>
+                    <h4 style="margin:0 0 16px; color:var(--accent)">Dia da Semana</h4>
                     <ul class="fator-list">
                         <li>Seg-Qui: <strong>0%</strong></li>
                         <li>Sexta: <strong>+12%</strong></li>
@@ -309,26 +354,26 @@
 
         <!-- Seção de Segurança e Privacidade -->
         <section style="margin-top:80px">
-            <h2>Segurança e Privacidade</h2>
+            <h2 style="font-size:2rem; margin:0 0 48px; color:var(--accent)">Segurança e Privacidade</h2>
             <div class="topics-grid" style="grid-template-columns: 1fr 1fr;">
                 <div class="topic-card">
                     <div class="topic-icon">🔒</div>
-                    <h3>Proteção de Dados</h3>
-                    <ul style="margin-top:12px; color:var(--muted); text-align:left">
-                        <li>✓ Criptografia TLS/SSL</li>
-                        <li>✓ Hashing de senhas</li>
-                        <li>✓ Tokens JWT seguros</li>
+                    <h3 style="margin:0 0 16px; color:var(--accent)">Proteção de Dados</h3>
+                    <ul style="margin-top:12px; color:var(--muted); text-align:left; list-style:none; padding:0">
+                        <li style="margin-bottom:8px">✓ Criptografia TLS/SSL</li>
+                        <li style="margin-bottom:8px">✓ Hashing de senhas</li>
+                        <li style="margin-bottom:8px">✓ Tokens JWT seguros</li>
                         <li>✓ Conformidade LGPD</li>
                     </ul>
                 </div>
 
                 <div class="topic-card">
                     <div class="topic-icon">🛡️</div>
-                    <h3>Controles de Acesso</h3>
-                    <ul style="margin-top:12px; color:var(--muted); text-align:left">
-                        <li>✓ Autenticação multi-fator</li>
-                        <li>✓ Roles e permissões</li>
-                        <li>✓ Logs de auditoria</li>
+                    <h3 style="margin:0 0 16px; color:var(--accent)">Controles de Acesso</h3>
+                    <ul style="margin-top:12px; color:var(--muted); text-align:left; list-style:none; padding:0">
+                        <li style="margin-bottom:8px">✓ Autenticação multi-fator</li>
+                        <li style="margin-bottom:8px">✓ Roles e permissões</li>
+                        <li style="margin-bottom:8px">✓ Logs de auditoria</li>
                         <li>✓ Detecção de fraude</li>
                     </ul>
                 </div>
@@ -337,8 +382,8 @@
 
         <!-- Seção de CTA Final -->
         <section class="final-cta" style="margin-top:80px">
-            <h2>Quer Entender Melhor?</h2>
-            <p>Explore na prática como o algoritmo do Uber funciona usando nosso simulador interativo.</p>
+            <h2 style="font-size:1.8rem">Quer Entender Melhor?</h2>
+            <p style="color:var(--muted)">Explore na prática como o algoritmo do Uber funciona usando nosso simulador interativo.</p>
             <div class="cta-buttons">
                 <a class="btn btn-primary" href="simulacao.html">Fazer Simulação</a>
                 <a class="btn secondary" href="detalhes.html">Ver Todos os Detalhes</a>

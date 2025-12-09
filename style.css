@@ -62,7 +62,7 @@ body{
         margin-bottom:12px;
     }
     .logo-img{
-        height: 65px;
+        height: 120px;
     }
     .hero h1{
         font-size: 2rem;
@@ -90,7 +90,7 @@ body{
         margin-bottom:10px;
     }
     .logo-img{
-        height: 55px;
+        height: 100px;
     }
     .hero{
         padding: 40px 0 28px;
@@ -119,7 +119,7 @@ body{
 }
 @media (max-width: 360px){
     .logo-img{
-        height: 50px;
+        height: 90px;
     }
     .hero h1{
         font-size: 1.3rem;
@@ -366,12 +366,28 @@ a:focus,button:focus{outline:2px solid rgba(255,255,255,0.12);outline-offset:2px
 /* Nav ativo */
 .nav-btn.active{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15)}
 
-/* Seção Intro */
-.intro-section{display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:center;margin:64px 0;padding:48px 0;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04)}
+/* Seção Intro - Layout: Imagem em cima, texto embaixo */
+.intro-section{display:grid;grid-template-columns:1fr;gap:32px;align-items:start;margin:64px 0;padding:48px 0;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04)}
+.intro-visual{display:flex;align-items:center;justify-content:center;width:100%;order:-1}
+.visual-container{position:relative;width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.06);border-radius:16px;overflow:hidden}
 .intro-content h2{font-size:2rem;margin:0 0 20px;color:var(--accent);font-weight:700}
 .intro-content p{font-size:1.1rem;color:var(--muted);line-height:1.7;margin:0}
-.intro-visual{display:flex;align-items:center;justify-content:center}
-.visual-container{position:relative;width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center}
+
+/* Entity Cards */
+.entity-card{background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px;transition:all 300ms cubic-bezier(.2,.9,.2,1)}
+.entity-card:hover{background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.12);transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.entity-card h4{margin:0 0 12px;color:var(--accent);font-size:1.1rem}
+.entity-card p{margin:0;color:var(--muted);font-size:0.95rem;line-height:1.6}
+
+/* DB Section */
+.db-section{margin:80px 0}
+.db-visual{display:flex;align-items:center;justify-content:center;width:100%;margin-bottom:48px}
+.db-info h2{font-size:2rem;margin:0 0 32px;color:var(--accent);font-weight:700}
+.db-info h3{font-size:1.5rem;margin:32px 0 24px;color:var(--accent)}
+
+/* Code Section */
+.code-section{background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px}
+.code-section h3{margin:0 0 24px;color:var(--accent);font-size:1.3rem}
 
 /* Quick Stats */
 .quick-stats{display:flex;gap:20px;margin-top:32px;flex-wrap:wrap}
@@ -427,15 +443,18 @@ a:focus,button:focus{outline:2px solid rgba(255,255,255,0.12);outline-offset:2px
 @media (max-width:900px){
     .intro-section{grid-template-columns:1fr;gap:32px;margin:48px 0;padding:32px 0}
     .intro-visual{min-height:300px}
+    .visual-container{aspect-ratio:4/3}
     .flow-steps{flex-direction:column}
     .flow-item{flex:1;width:100%;min-width:auto}
     .flow-arrow{display:none}
     .topics-grid{grid-template-columns:1fr}
+    .fatores-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media (max-width:600px){
     .intro-content h2{font-size:1.6rem}
     .intro-section{padding:24px 0;margin:40px 0}
+    .visual-container{aspect-ratio:3/2}
     .quick-stats{gap:12px}
     .stat-box{padding:16px 12px;min-width:auto;flex:1}
     .flow-section h2{font-size:1.6rem}
@@ -448,6 +467,9 @@ a:focus,button:focus{outline:2px solid rgba(255,255,255,0.12);outline-offset:2px
     .final-cta h2{font-size:1.5rem}
     .cta-buttons{gap:10px}
     .btn{padding:10px 16px;font-size:0.95rem}
+    .entity-card{padding:16px}
+    .db-section{margin:60px 0}
+    .fatores-grid{grid-template-columns:1fr}
 }
 
 .site-logo{
@@ -707,6 +729,55 @@ a:focus,button:focus{outline:2px solid rgba(255,255,255,0.12);outline-offset:2px
 .carregando{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:1rem;padding:20px;text-align:center;justify-content:center}
 .spinner{display:inline-block;width:20px;height:20px;border:2px solid rgba(255,255,255,0.1);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+/* ===== ESTILOS ISOLADOS PARA PÁGINA PARTE-LÓGICA ===== */
+/* Estes estilos são específicos para a página parte-logica.html e não afetam outras páginas */
+
+/* Seção de Mockups */
+.mockups-section{margin:80px 0;padding:48px 0;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04)}
+.mockups-section h2{font-size:2rem;margin:0 0 16px;color:var(--accent);font-weight:700;text-align:center}
+.section-intro{color:var(--muted);font-size:1.05rem;text-align:center;margin:0 0 48px;max-width:700px;margin-left:auto;margin-right:auto}
+
+/* Container de Mockups */
+.mockups-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;margin-bottom:64px}
+.mockup-card{background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:24px;transition:all 300ms cubic-bezier(.2,.9,.2,1);overflow:hidden}
+.mockup-card:hover{background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.12);transform:translateY(-8px);box-shadow:0 16px 40px rgba(0,0,0,0.3)}
+.mockup-title{font-size:1.2rem;font-weight:700;color:var(--accent);margin-bottom:16px}
+.mockup-img{width:100%;height:auto;border-radius:12px;display:block;border:1px solid rgba(255,255,255,0.06)}
+.mockup-desc{color:var(--muted);font-size:0.95rem;margin-top:16px;line-height:1.6}
+
+/* Seção de Explicação dos Mockups */
+.mockup-explanation{background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:48px;margin-top:48px}
+.mockup-explanation h3{font-size:1.5rem;margin:0 0 32px;color:var(--accent);text-align:center;font-weight:700}
+.explanation-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+.explanation-item{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px;text-align:center;transition:all 300ms ease}
+.explanation-item:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.12);transform:translateY(-4px)}
+.explanation-icon{font-size:2.5rem;display:block;margin-bottom:12px}
+.explanation-item h4{margin:0 0 12px;font-size:1.1rem;color:var(--accent);font-weight:700}
+.explanation-item p{margin:0;color:var(--muted);font-size:0.9rem;line-height:1.6}
+
+/* Responsividade para Mockups */
+@media (max-width:900px){
+    .mockups-container{grid-template-columns:1fr;gap:32px}
+    .mockup-explanation{padding:32px}
+    .mockup-explanation h3{font-size:1.3rem;margin-bottom:24px}
+    .explanation-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+}
+
+@media (max-width:600px){
+    .mockups-section{margin:60px 0;padding:32px 0}
+    .mockups-section h2{font-size:1.6rem}
+    .section-intro{font-size:1rem;margin-bottom:32px}
+    .mockup-card{padding:16px}
+    .mockup-title{font-size:1.05rem}
+    .mockup-desc{font-size:0.9rem;margin-top:12px}
+    .mockup-explanation{padding:24px}
+    .mockup-explanation h3{font-size:1.2rem}
+    .explanation-grid{grid-template-columns:1fr;gap:16px}
+    .explanation-item{padding:16px}
+    .explanation-icon{font-size:2rem}
+    .explanation-item h4{font-size:1rem}
+}
 .erro{background:rgba(255,107,107,0.1);border:1px solid rgba(255,107,107,0.3);color:#ff6b6b;padding:16px;border-radius:12px;text-align:center;font-weight:600}
 
 /* Links Section */
