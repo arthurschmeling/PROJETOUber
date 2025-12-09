@@ -14,291 +14,386 @@
             <div class="header-logo">
                 <img src="assets/img/logo2.0.png" alt="cuBer Logo" class="logo-img">
             </div>
-            <h1>Parte Lógica do Uber</h1>
-            <p class="lead">Uma visão clara e didática das decisões técnicas, algoritmos e arquitetura por trás de uma plataforma de mobilidade.</p>
+            <h1>A Parte Lógica do Uber</h1>
+            <p class="lead">Descubra os algoritmos, arquitetura e tecnologias que conectam milhões de pessoas em tempo real</p>
 
             <nav class="main-nav" aria-label="Navegação principal">
-        <a href="index.html" class="nav-btn">Início</a>
-                <a href="detalhes.html" class="nav-btn">Entenda como funciona</a>
+                <a href="index.html" class="nav-btn">Início</a>
+                <a href="detalhes.html" class="nav-btn">Como funciona</a>
                 <a href="parte-logica.html" class="nav-btn active">Parte lógica</a>
-                <a href="sobreNos.html" class="nav-btn active">Criadores do site</a>
+                <a href="sobreNos.html" class="nav-btn">Sobre nós</a>
             </nav>
 
             <div class="hero-features" style="margin-top:18px">
                 <div class="feature feature-interactive">
-                    <div class="icon">🛰️</div>
+                    <div class="icon">🗺️</div>
                     <div>
                         <h4>Geolocalização</h4>
-                        <p class="muted">Rastreamento em tempo real e posicionamento do motorista e passageiro.</p>
-                    </div>
-                </div>
-                <div class="feature feature-interactive">
-                    <div class="icon">🧠</div>
-                    <div>
-                        <h4>Algoritmos</h4>
-                        <p class="muted">Roteamento, matchmaking e estimativas com ML e otimização.</p>
+                        <p class="muted">Rastreamento em tempo real via GPS</p>
                     </div>
                 </div>
                 <div class="feature feature-interactive">
                     <div class="icon">⚙️</div>
                     <div>
-                        <h4>Infraestrutura</h4>
-                        <p class="muted">Servidores, filas, tolerância a falhas e escalabilidade.</p>
+                        <h4>Algoritmos Inteligentes</h4>
+                        <p class="muted">Matchmaking e roteamento otimizado</p>
+                    </div>
+                </div>
+                <div class="feature feature-interactive">
+                    <div class="icon">📊</div>
+                    <div>
+                        <h4>Big Data</h4>
+                        <p class="muted">Análise e previsão em tempo real</p>
                     </div>
                 </div>
             </div>
 
             <div class="cta-row" style="margin-top:20px">
-                <a class="btn" href="simulacao.html">Fazer uma simulação</a>
-                <a class="btn secondary" href="index.html">Voltar ao início</a>
+                <a class="btn btn-primary" href="simulacao.html">Simular uma corrida</a>
+                <a class="btn secondary" href="detalhes.html">Ver detalhes</a>
             </div>
         </div>
     </header>
 
     <main class="container">
+        <!-- Seção de Introdução -->
         <section class="intro-section">
             <div class="intro-content">
-                <h2>Como a parte lógica conecta passageiros e motoristas</h2>
-                <p class="muted">A plataforma integra vários subsistemas: captura de localização, cálculo de rotas, seleção e ordenação de motoristas, cálculo de preços, processamento de pagamentos, e monitoramento. Aqui está uma explicação organizada para entender cada peça.</p>
-
-                <div class="quick-stats" style="margin-top:20px">
+                <h2>Como a tecnologia conecta tudo?</h2>
+                <p>O Uber não é apenas um app. Por trás das cortinas, funciona uma arquitetura complexa que processa milhares de eventos por segundo, conectando passageiros e motoristas de forma inteligente e eficiente.</p>
+                
+                <div class="quick-stats">
                     <div class="stat-box">
-                        <span class="stat-value">10ms</span>
-                        <span class="stat-name">Latência típica (API interna)</span>
+                        <span class="stat-value">100k+</span>
+                        <span class="stat-name">Eventos/minuto</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-value">+100k</span>
-                        <span class="stat-name">Eventos por minuto</span>
+                        <span class="stat-value">&lt;30s</span>
+                        <span class="stat-name">Tempo de matching</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-value">N/A</span>
-                        <span class="stat-name">Roteamento em tempo real</span>
+                        <span class="stat-value">99.99%</span>
+                        <span class="stat-name">Disponibilidade</span>
                     </div>
                 </div>
             </div>
 
             <aside class="intro-visual">
-                <div class="preview">
-                    <div class="preview-inner">
-                        <img id="previewImg" src="assets/img/banco.png" alt="Diagrama de banco de dados" class="preview-img" role="button" tabindex="0" aria-label="Ampliar diagrama"/>
-                        <p class="muted" style="margin-top:8px;font-size:0.9rem">Exemplo simplificado: entidades Usuário e Viagem.</p>
-                        <img src="assets/img/fluxograma.png" alt="Fluxograma do processamento" class="preview-img">
-                    </div>
+                <div class="visual-container">
+                    <img src="assets/img/fluxograma.png" alt="Fluxograma do sistema Uber" class="preview-img">
                 </div>
             </aside>
         </section>
 
+        <!-- Seção dos 4 Pilares Principais -->
         <section class="topics-section">
-            <h2>Tópicos principais</h2>
-            <div class="topics-grid" style="margin-top:20px">
-                <article class="topic-card">
-                    <span class="topic-icon">🗺️</span>
-                    <h3>Geocoding & Mapeamento</h3>
-                    <p class="muted">Conversão de endereços em coordenadas (geocoding), integração com provedores de mapas e serviços de roteamento para estimar distância e tempo.</p>
-                    <a class="topic-link" href="#">Ver detalhes</a>
-                </article>
-
-                <article class="topic-card">
-                    <span class="topic-icon">🔁</span>
-                    <h3>Matchmaking (pareamento)</h3>
-                    <p class="muted">Algoritmos que escolhem o motorista ideal para cada requisição considerando proximidade, tempo de chegada, aceitação, e regras de prioridade.</p>
-                    <a class="topic-link" href="#matchmaking">Ver algoritmo</a>
-                </article>
-
-                                <article class="topic-card">
-                                        <span class="topic-icon">📈</span>
-                                        <h3>Precificação</h3>
-                                        <p class="muted">Modelo híbrido com tarifa base + por km e multiplicadores (demanda, clima, trânsito, horário).</p>
-                                        <pre class="formula-box" style="margin-top:12px"><code>// cálculo simplificado de preço (em Reais)
-const precoBase = 5.00;
-const precoPorKm = 1.80; // exemplo
-function calcularPreco(distanciaKm, multiplicadorTotal){
-    const subtotal = precoBase + precoPorKm * distanciaKm;
-    return (subtotal * multiplicadorTotal).toFixed(2);
-}
-</code></pre>
-                                        <a class="topic-link" href="simulacao.html">Simular preço</a>
-                                </article>
-
-                <article class="topic-card">
-                    <span class="topic-icon">☁️</span>
-                    <h3>Escalabilidade & Resiliência</h3>
-                    <p class="muted">Arquitetura baseada em microsserviços, filas, caches e sharding para suportar alto volume com baixa latência.</p>
-                    <a class="topic-link" href="#scaling">Estratégias</a>
-                </article>
-            </div>
-        </section>
-
-        <section id="matchmaking" style="margin-top:40px">
-            <h2>Matchmaking — como o sistema escolhe um motorista</h2>
-            <div class="card card-body" style="margin-top:12px">
-                <p class="muted">Quando um passageiro solicita uma corrida, o sistema executa passos curtos e rápidos:</p>
-                <ol style="margin-top:12px">
-                    <li>Coleta: recebe origem/destino e localização atual do passageiro.</li>
-                    <li>Filtragem: identifica motoristas elegíveis (disponíveis, no raio definido, compatíveis).</li>
-                    <li>Ordenação: calcula métricas (ETA, custo, histórico) e ordena candidatos.</li>
-                    <li>Oferta: envia proposta sequencial ou em lote para motoristas, aguardando aceitação.</li>
-                </ol>
-                <p class="muted">Esse fluxo precisa ser rápido (ms–s) e tolerante a falhas: se não houver resposta, o sistema tenta o próximo candidato.</p>
-
-                <pre class="formula-box" style="margin-top:12px"><code>/* Pseudocódigo: selecionar o melhor motorista */
-function findDriver(request, drivers) {
-    // filtra motoristas disponíveis num raio
-    const candidates = drivers.filter(d =&gt; d.available &amp;&amp; distance(d.pos, request.pos) &lt; MAX_RADIUS);
-    // ordena por ETA estimado (ou outra métrica composta)
-    candidates.sort((a, b) =&gt; ETA(a, request) - ETA(b, request));
-    // retorna o primeiro candidato (ou uma lista para oferta em lote)
-    return candidates[0];
-}
-</code></pre>
-            </div>
-        </section>
-
-        <section id="routing" style="margin-top:32px">
-            <h2>Roteamento e estimativas</h2>
-            <div class="card card-body" style="margin-top:12px">
-                <p class="muted">Roteadores (como OSRM, GraphHopper ou soluções internas) devolvem trajetos e tempos estimados. Para melhorar estimativas o sistema aplica:</p>
-                <ul style="margin-top:12px">
-                    <li>Dados históricos de velocidade por trecho e hora do dia;</li>
-                    <li>Correções por trânsito em tempo real;</li>
-                    <li>Lógica para replanos durante a corrida (desvios/obras).</li>
-                </ul>
-                                <pre class="formula-box" style="margin-top:12px"><code>// Exemplo: chamada simples ao OSRM para obter distância
-fetch(`https://router.project-osrm.org/route/v1/driving/${lon1},${lat1};${lon2},${lat2}?overview=false`)
-    .then(res =&gt; res.json())
-    .then(data =&gt; {
-        const route = data.routes &amp;&amp; data.routes[0];
-        const distanciaMetros = route ? route.distance : 0;
-        const duracaoSegundos = route ? route.duration : 0;
-        // converter e usar nos cálculos
-    });
-</code></pre>
-            </div>
-        </section>
-
-        <section id="data-model" style="margin-top:32px">
-            <h2>Modelo de dados (simplificado)</h2>
-            <div class="card card-body" style="display:flex;flex-direction:column;gap:12px;margin-top:12px">
-                <p class="muted">Entidades principais:</p>
-                <ul>
-                    <li><strong>Usuário</strong>: id, nome, rating, formaPagamento;</li>
-                    <li><strong>Motorista</strong>: id, localização atual, status, histórico;</li>
-                    <li><strong>Viagem</strong>: origem, destino, distância, duração, preço, timestamps;</li>
-                </ul>
-                                <pre class="formula-box" style="margin-top:8px"><code>-- Exemplo simples de esquema SQL
-CREATE TABLE usuario (
-    id SERIAL PRIMARY KEY,
-    nome VARCHAR(120) NOT NULL,
-    rating NUMERIC(2,1),
-    forma_pagamento VARCHAR(40)
-);
-
-CREATE TABLE viagem (
-    id SERIAL PRIMARY KEY,
-    usuario_id INT REFERENCES usuario(id),
-    origem GEOMETRY(POINT),
-    destino GEOMETRY(POINT),
-    distancia_km NUMERIC,
-    duracao_min INT,
-    preco NUMERIC(8,2),
-    created_at TIMESTAMP DEFAULT now()
-);
-</code></pre>
-                                <p class="muted">Normalmente, combina-se um banco relacional para persistência das viagens com bancos NoSQL para leitura de alta velocidade e caches para consultas frequentes.</p>
-            </div>
-        </section>
-
-        <section id="privacy" style="margin-top:32px">
-            <h2>Privacidade e Segurança</h2>
-            <div class="card card-body" style="margin-top:12px">
-                <p class="muted">Algumas práticas importantes:</p>
-                <ul>
-                    <li>Criptografia de dados sensíveis em trânsito e em repouso;</li>
-                    <li>Controle de acesso estrito (roles, logs de auditoria);</li>
-                    <li>Minimização de dados: armazenar apenas o necessário e por tempo limitado.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="scaling" style="margin-top:32px">
-            <h2>Escalabilidade e monitoramento</h2>
-            <div class="card card-body" style="margin-top:12px">
-                <p class="muted">Para manter o serviço estável em picos:</p>
-                <ul>
-                    <li>Use filas para desacoplar produtores e consumidores (ex.: Kafka, RabbitMQ);</li>
-                    <li>Autoscaling e replicação de serviços críticos;</li>
-                    <li>Monitoramento com métricas (latência, erros) e alertas automáticos.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="exemplo-section" style="margin-top:40px">
-            <h2>Exemplo prático: banco de dados (diagrama)</h2>
-            <div class="exemplo-box" style="margin-top:12px">
-                <div class="exemplo-item">
-                    <div class="exemplo-label">Usuário</div>
-                    <div class="exemplo-valor">id, nome, rating, pagamento</div>
+            <h2>Os 4 Pilares Tecnológicos</h2>
+            <div class="topics-grid">
+                <div class="topic-card topic-card-interactive">
+                    <div class="topic-icon">📍</div>
+                    <h3>1. Geolocalização</h3>
+                    <p class="muted">GPS e mapas em tempo real para rastrear motoristas e passageiros. O sistema atualiza a posição a cada segundo com precisão de metros.</p>
+                    <a href="#" class="topic-link">Ver tecnologia →</a>
                 </div>
-                <div class="exemplo-item">
-                    <div class="exemplo-label">Viagem</div>
-                    <div class="exemplo-valor">origem, destino, distância, preço</div>
+
+                <div class="topic-card topic-card-interactive">
+                    <div class="topic-icon">🤖</div>
+                    <h3>2. Matchmaking</h3>
+                    <p class="muted">Algoritmo que escolhe o melhor motorista considerando proximidade, histórico, capacidade e aceitação. Tudo em milissegundos.</p>
+                    <a href="#matchmaking" class="topic-link">Ver algoritmo →</a>
                 </div>
+
+                <div class="topic-card topic-card-interactive">
+                    <div class="topic-icon">🛣️</div>
+                    <h3>3. Roteamento</h3>
+                    <p class="muted">Cálculo de rotas otimizadas usando dados de tráfego em tempo real. Integrações com OSRM e Google Maps para melhor ETA.</p>
+                    <a href="#routing" class="topic-link">Ver detalhes →</a>
+                </div>
+
+                <div class="topic-card topic-card-interactive">
+                    <div class="topic-icon">💰</div>
+                    <h3>4. Precificação</h3>
+                    <p class="muted">Modelo dinâmico que considera distância, demanda, trânsito, clima e horário. Transparente e justo para ambas as partes.</p>
+                    <a href="simulacao.html" class="topic-link">Simular preço →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Banco de Dados -->
+        <section class="db-section" style="margin-top:80px">
+            <h2>A Base de Dados: O Coração do Sistema</h2>
+            <div class="db-content">
+                <div class="db-visual">
+                    <img src="assets/img/banco.png" alt="Diagrama de banco de dados" class="preview-img">
+                </div>
+                
+                <div class="db-info">
+                    <h3>Entidades Principais</h3>
+                    
+                    <div class="entity-card">
+                        <h4>👤 Usuário</h4>
+                        <p>Armazena dados do passageiro: ID, nome, email, rating, métodos de pagamento e histórico de viagens.</p>
+                    </div>
+
+                    <div class="entity-card">
+                        <h4>🚗 Motorista</h4>
+                        <p>Informações do motorista: documentos, localização em tempo real, status (online/offline), rating e renda.</p>
+                    </div>
+
+                    <div class="entity-card">
+                        <h4>🛣️ Viagem</h4>
+                        <p>Detalhes de cada corrida: origem, destino, distância, duração, preço final, timestamp e status.</p>
+                    </div>
+
+                    <div class="entity-card">
+                        <h4>⭐ Avaliação</h4>
+                        <p>Sistema de rating bilateral: passageiro avalia motorista e vice-versa. Essencial para manter qualidade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Matchmaking -->
+        <section id="matchmaking" style="margin-top:80px">
+            <h2>Como Funciona o Matchmaking?</h2>
+            <div class="flow-steps" style="margin-top:32px">
+                <div class="flow-item">
+                    <div class="flow-number">1</div>
+                    <h4>Solicitação</h4>
+                    <p>Passageiro envia origem e destino</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-item">
+                    <div class="flow-number">2</div>
+                    <h4>Filtragem</h4>
+                    <p>Sistema identifica motoristas próximos</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-item">
+                    <div class="flow-number">3</div>
+                    <h4>Ordenação</h4>
+                    <p>Calcula ETA e prioriza os melhores</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-item">
+                    <div class="flow-number">4</div>
+                    <h4>Oferta</h4>
+                    <p>Envia proposta para motorista aceitar</p>
+                </div>
+            </div>
+
+            <div class="card card-body" style="margin-top:32px">
+                <h3 style="margin-top:0">Pseudocódigo do Algoritmo</h3>
+                <pre class="formula-box"><code>function findBestDriver(request, drivers) {
+    // 1. Filtrar motoristas disponíveis em raio de 15km
+    const candidates = drivers.filter(d => 
+        d.available && 
+        distance(d.location, request.origin) < 15000
+    );
+    
+    // 2. Calcular score para cada candidato
+    candidates = candidates.map(d => ({
+        driver: d,
+        score: (d.rating * 0.4) +
+               (1 / eta(d, request) * 0.6)
+    }));
+    
+    // 3. Retornar o melhor
+    return candidates.sort((a, b) => 
+        b.score - a.score
+    )[0].driver;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção Roteamento -->
+        <section id="routing" style="margin-top:80px">
+            <h2>Roteamento e Estimativas de Tempo</h2>
+            <div class="topics-grid" style="grid-template-columns: 1fr 1fr; margin-top:32px">
+                <div class="topic-card">
+                    <div class="topic-icon">🗺️</div>
+                    <h3>APIs Usadas</h3>
+                    <ul style="margin-top:12px; color:var(--muted); text-align:left">
+                        <li>✓ OSRM: Roteamento rápido e livre</li>
+                        <li>✓ Nominatim: Geocoding e reverso</li>
+                        <li>✓ Google Maps: Tráfego em tempo real</li>
+                        <li>✓ OpenStreetMap: Dados de ruas</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-icon">📈</div>
+                    <h3>Fatores Considerados</h3>
+                    <ul style="margin-top:12px; color:var(--muted); text-align:left">
+                        <li>✓ Velocidade média por trecho</li>
+                        <li>✓ Horário do dia</li>
+                        <li>✓ Condições climáticas</li>
+                        <li>✓ Histórico de congestionamento</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Precificação Dinâmica -->
+        <section style="margin-top:80px">
+            <h2>A Fórmula da Precificação</h2>
+            <div class="exemplo-box" style="margin-top:32px">
+                <div class="exemplo-item">
+                    <div class="exemplo-label">Preço Base</div>
+                    <div class="exemplo-valor">R$ 5,00</div>
+                </div>
+                <div class="exemplo-calculo">+</div>
+                <div class="exemplo-item">
+                    <div class="exemplo-label">Preço/km</div>
+                    <div class="exemplo-valor">R$ 1,80 × km</div>
+                </div>
+                <div class="exemplo-calculo">×</div>
                 <div class="exemplo-item exemplo-final">
-                    <div class="exemplo-label">Relacionamento</div>
-                    <div class="exemplo-valor">Usuário 1:N Viagem</div>
+                    <div class="exemplo-label">Multiplicador Dinâmico</div>
+                    <div class="exemplo-valor">1.0 ~ 1.5x</div>
+                </div>
+            </div>
+
+            <div class="fatores-grid" style="margin-top:40px">
+                <div class="fator-card">
+                    <div class="fator-icon">⏰</div>
+                    <h3>Horário</h3>
+                    <ul class="fator-list">
+                        <li>Pico matinal (6-9h): <strong>+20%</strong></li>
+                        <li>Normal: <strong>0%</strong></li>
+                        <li>Pico noite (17-20h): <strong>+30%</strong></li>
+                        <li>Madrugada: <strong>+50%</strong></li>
+                    </ul>
+                </div>
+
+                <div class="fator-card">
+                    <div class="fator-icon">🚗</div>
+                    <h3>Trânsito</h3>
+                    <ul class="fator-list">
+                        <li>Leve: <strong>0%</strong></li>
+                        <li>Moderado: <strong>+10%</strong></li>
+                        <li>Pesado: <strong>+20%</strong></li>
+                        <li>Congestionamento: <strong>+30%</strong></li>
+                    </ul>
+                </div>
+
+                <div class="fator-card">
+                    <div class="fator-icon">☁️</div>
+                    <h3>Clima</h3>
+                    <ul class="fator-list">
+                        <li>Bom: <strong>0%</strong></li>
+                        <li>Nublado: <strong>+3%</strong></li>
+                        <li>Chuva: <strong>+12%</strong></li>
+                        <li>Tempestade: <strong>+25%</strong></li>
+                    </ul>
+                </div>
+
+                <div class="fator-card">
+                    <div class="fator-icon">📅</div>
+                    <h3>Dia da Semana</h3>
+                    <ul class="fator-list">
+                        <li>Seg-Qui: <strong>0%</strong></li>
+                        <li>Sexta: <strong>+12%</strong></li>
+                        <li>Sábado: <strong>+18%</strong></li>
+                        <li>Domingo: <strong>+25%</strong></li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-                <footer class="site-footer" style="margin-top:48px">
-                        <div class="container">&copy; 2025 — Explicação didática sobre a parte lógica do Uber. <a href="index.html" class="nav-btn" style="margin-left:12px;padding:6px 10px">Voltar</a></div>
-                </footer>
-        </main>
-
-        <!-- Image modal / lightbox (abre ao clicar em qualquer .preview-img) -->
-        <div id="imgModal" class="img-modal-overlay" aria-hidden="true">
-                <div class="img-modal-wrap" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-                        <button id="imgModalClose" class="img-modal-close" aria-label="Fechar">✕</button>
-                        <img id="imgModalImg" src="" alt="Diagrama ampliado" />
+        <!-- Seção de Segurança e Privacidade -->
+        <section style="margin-top:80px">
+            <h2>Segurança e Privacidade</h2>
+            <div class="topics-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="topic-card">
+                    <div class="topic-icon">🔒</div>
+                    <h3>Proteção de Dados</h3>
+                    <ul style="margin-top:12px; color:var(--muted); text-align:left">
+                        <li>✓ Criptografia TLS/SSL</li>
+                        <li>✓ Hashing de senhas</li>
+                        <li>✓ Tokens JWT seguros</li>
+                        <li>✓ Conformidade LGPD</li>
+                    </ul>
                 </div>
+
+                <div class="topic-card">
+                    <div class="topic-icon">🛡️</div>
+                    <h3>Controles de Acesso</h3>
+                    <ul style="margin-top:12px; color:var(--muted); text-align:left">
+                        <li>✓ Autenticação multi-fator</li>
+                        <li>✓ Roles e permissões</li>
+                        <li>✓ Logs de auditoria</li>
+                        <li>✓ Detecção de fraude</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de CTA Final -->
+        <section class="final-cta" style="margin-top:80px">
+            <h2>Quer Entender Melhor?</h2>
+            <p>Explore na prática como o algoritmo do Uber funciona usando nosso simulador interativo.</p>
+            <div class="cta-buttons">
+                <a class="btn btn-primary" href="simulacao.html">Fazer Simulação</a>
+                <a class="btn secondary" href="detalhes.html">Ver Todos os Detalhes</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">&copy; 2025 — Explicação didática sobre a parte lógica do Uber.</div>
+    </footer>
+
+    <!-- Image modal / lightbox -->
+    <div id="imgModal" class="img-modal-overlay" aria-hidden="true">
+        <div class="img-modal-wrap" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+            <button id="imgModalClose" class="img-modal-close" aria-label="Fechar">✕</button>
+            <img id="imgModalImg" src="" alt="Diagrama ampliado" />
         </div>
+    </div>
 
-        <script>
-        (function(){
-            const previews = Array.from(document.querySelectorAll('.preview-img'));
-            const modal = document.getElementById('imgModal');
-            const modalImg = document.getElementById('imgModalImg');
-            const closeBtn = document.getElementById('imgModalClose');
+    <script>
+    (function(){
+        const previews = Array.from(document.querySelectorAll('.preview-img'));
+        const modal = document.getElementById('imgModal');
+        const modalImg = document.getElementById('imgModalImg');
+        const closeBtn = document.getElementById('imgModalClose');
 
-            if(!modal || previews.length === 0) return;
+        if(!modal || previews.length === 0) return;
 
-            function openModalWith(src, alt){
-                modalImg.src = src;
-                modalImg.alt = alt || '';
-                modal.classList.add('active');
-                modal.setAttribute('aria-hidden','false');
-                closeBtn.focus();
-                document.body.style.overflow = 'hidden';
-            }
+        function openModalWith(src, alt){
+            modalImg.src = src;
+            modalImg.alt = alt || '';
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden','false');
+            closeBtn.focus();
+            document.body.style.overflow = 'hidden';
+        }
 
-            function closeModal(){
-                modal.classList.remove('active');
-                modal.setAttribute('aria-hidden','true');
-                modalImg.src = '';
-                document.body.style.overflow = '';
-            }
+        function closeModal(){
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden','true');
+            modalImg.src = '';
+            document.body.style.overflow = '';
+        }
 
-            previews.forEach(img => {
-                img.style.cursor = 'zoom-in';
-                img.addEventListener('click', () => openModalWith(img.src, img.alt));
-                img.addEventListener('keypress', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModalWith(img.src, img.alt); }});
-            });
+        previews.forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => openModalWith(img.src, img.alt));
+            img.addEventListener('keypress', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModalWith(img.src, img.alt); }});
+        });
 
-            closeBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
-            document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
-        })();
-        </script>
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+        document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
+    })();
+    </script>
 
 </body>
 

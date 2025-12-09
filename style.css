@@ -69,6 +69,20 @@ body{
     .lead{
         font-size: 0.95rem;
     }
+    .main-nav{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        width: 100%;
+        max-width: 500px;
+        justify-items: center;
+    }
+    .nav-btn{
+        width: 100%;
+        text-align: center;
+        padding: 9px 12px;
+        font-size: 0.9rem;
+    }
 }
 @media (max-width: 480px){
     .header-logo{
@@ -91,10 +105,16 @@ body{
     .main-nav{
         gap: 6px;
         margin-top: 12px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        max-width: 400px;
     }
     .nav-btn{
-        padding: 8px 12px;
-        font-size: 0.85rem;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        width: 100%;
+        text-align: center;
     }
 }
 @media (max-width: 360px){
@@ -104,9 +124,13 @@ body{
     .hero h1{
         font-size: 1.3rem;
     }
+    .main-nav{
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
     .nav-btn{
-        padding: 6px 10px;
-        font-size: 0.8rem;
+        padding: 7px 8px;
+        font-size: 0.75rem;
     }
 }
 
